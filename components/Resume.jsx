@@ -27,7 +27,26 @@ const EDUCATION_DATA = [
   },
 ];
 
-
+const EXPERIENCE_DATA = [
+  {
+    years: "2019 to Present",
+    title: "Graphics Design",
+    description:
+      "From 2018 I am woking on Graphics Design. The software I use Photoshop, Illustrator for Graphics design.",
+  },
+  {
+    years: "2020 to Present",
+    title: "Web Design",
+    description:
+      "Since 2020 I started to learn Coding. I have learn Html, Css, Sass, JavaScript, Bootstrap. Now I am a Professional Web Designer..",
+  },
+  {
+    years: "2020 to Present",
+    title: "Wordpress",
+    description:
+      "Since 2020 I started to learn Wordpress. I can install, Customize, & fix bug on wordpress.",
+  },
+];
 
 // Framer Motion Variants
 const containerVariants = {

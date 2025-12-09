@@ -1,0 +1,81 @@
+// components/ServicesSection.js
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  FaPalette, // For UI/UX Design
+  FaLaptopCode, // For Web Application
+  FaAndroid, // For Android Application
+  FaMobileAlt, // For Mobile Design
+  FaPencilAlt, // For Writing
+  FaCameraRetro, // For Photography
+} from "react-icons/fa";
+
+// --- CONFIGURATION & DATA (UPDATED DESCRIPTIONS) ---
+
+const SERVICE_CARDS = [
+  {
+    icon: FaPalette,
+    title: "UI/UX Design",
+    description:
+      "Designing beautiful and highly functional user interfaces and engaging user experiences focused on conversion and accessibility.",
+    color: "bg-green-600", // Matches screenshot green
+    delay: 0.2,
+  },
+  {
+    icon: FaLaptopCode,
+    title: "Web Application",
+    description:
+      "Developing powerful, scalable, and responsive web applications using modern frameworks like Next.js and React.",
+    color: "bg-teal-600", // Matches screenshot teal/blue-green
+    delay: 0.3,
+  },
+  {
+    icon: FaAndroid,
+    title: "Android Application",
+    description:
+      "Building native or cross-platform Android applications that deliver seamless performance and a great user experience.",
+    color: "bg-red-600", // Matches screenshot red
+    delay: 0.4,
+  },
+  {
+    icon: FaMobileAlt,
+    title: "Mobile Design",
+    description:
+      "Creating mobile-first designs ensuring your application looks and works flawlessly on any handheld device or screen size.",
+    color: "bg-orange-500", // Matches screenshot orange
+    delay: 0.5,
+  },
+  {
+    icon: FaPencilAlt,
+    title: "Writing",
+    description:
+      "Providing clear, concise, and engaging technical content, documentation, or creative copywriting for your project needs.",
+    color: "bg-blue-600", // Matches screenshot blue
+    delay: 0.6,
+  },
+  {
+    icon: FaCameraRetro,
+    title: "Photography",
+    description:
+      "Delivering high-quality, professional photography services for digital media, portraits, and product showcasing.",
+    color: "bg-purple-600", // Matches screenshot purple
+    delay: 0.7,
+  },
+];
+
+// Framer Motion Variants (No Change)
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+// --- Sub-Component: Single Service Card (UPDATED HOVER ANIMATION) ---
+
+
+// --- Main Component (UPDATED GRID LAYOUT) ---
+export default function ServicesSection() {
+  return (
+   
+  );
+}

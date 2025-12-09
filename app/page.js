@@ -2,6 +2,7 @@ import Sidebar from "@/components/Sidebar";
 import HeaderSection from "@/components/HeaderSection";
 import About from "@/components/About";
 import AboutMeSection from "@/components/About";
+import ResumeSection from "@/components/Resume";
 
 export default function Home() {
   const sections = [
@@ -22,6 +23,7 @@ export default function Home() {
       <main className="flex-1 mt-5 lg:px-5">
         <HeaderSection />
         <AboutMeSection></AboutMeSection>
+        <ResumeSection></ResumeSection>
         
         {/* baki section gulo same vhabe banabo */}
       </main>

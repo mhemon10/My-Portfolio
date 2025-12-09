@@ -102,4 +102,123 @@ const SkillBar = ({ name, level, color }) => (
   </motion.div>
 );
 
+// --- Main Component ---
+export default function AboutMeSection() {
+  return (
+    <motion.section
+      id="about" // Used for Intersection Observer in Sidebar
+      className="p-4 md:p-8 lg:p-2 bg-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      // Ensure animation runs when scrolled into view
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}>
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">About Me</h1>
 
+      {/* 1. About Text & CV Button */}
+      <motion.div variants={itemVariants} className=" lg:p-5 mb-5 shadow">
+        <p className="text-gray-600 mb-4 leading-relaxed">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit. Sed ut perspiciatis unde omnis iste
+          natus error sit voluptatem accusantium doloremque.
+        </p>
+        <p className="text-gray-600 mb-6 leading-relaxed">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+        <button className="flex items-center bg-green-600 text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:bg-green-700 transition duration-300">
+          <FaDownload className="mr-2" />
+          DOWNLOAD CV.
+        </button>
+      </motion.div>
+
+      {/* 2. Personal Stats/Info */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6 mt-10">
+        {/* Left Column: Personal Info */}
+        <motion.div variants={containerVariants}>
+          <div className="space-y-2">
+            {PERSONAL_INFO.map((item, index) => (
+              <StatItem
+                key={index}
+                label={item.label}
+                value={item.value}
+                Icon={item.icon}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right Column: Fun Stats */}
+        <motion.div variants={containerVariants}>
+          <div className="space-y-2">
+            {FUN_STATS.map((item, index) => (
+              <StatItem
+                key={index}
+                label={item.label}
+                value={item.value}
+                Icon={item.icon}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="h-px w-full bg-gray-200 my-10" />
+
+      {/* 3. Skills Progress Bars */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10">
+        {/* Professional Skills */}
+        <div>
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center mb-4">
+            <FaUserCircle className="text-green-600 mr-3 text-2xl" />
+            <h3 className="text-lg font-semibold text-gray-800">
+              Professional Skills
+            </h3>
+          </motion.div>
+          <p className="text-sm text-gray-500 mb-6">Sed ut perspiciatis</p>
+          <motion.div variants={containerVariants} className="space-y-4">
+            {PROFESSIONAL_SKILLS.map((skill, index) => (
+              <SkillBar
+                key={index}
+                name={skill.name}
+                level={skill.level}
+                color={skill.color}
+              />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Personal Skills */}
+        <div>
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center mb-4">
+            <FaRedhat className="text-red-600 mr-3 text-2xl" />
+            <h3 className="text-lg font-semibold text-gray-800">
+              Personal Skills
+            </h3>
+          </motion.div>
+          <p className="text-sm text-gray-500 mb-6">Sed ut perspiciatis</p>
+          <motion.div variants={containerVariants} className="space-y-4">
+            {PERSONAL_SKILLS.map((skill, index) => (
+              <SkillBar
+                key={index}
+                name={skill.name}
+                level={skill.level}
+                color={skill.color}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
+  );
+}

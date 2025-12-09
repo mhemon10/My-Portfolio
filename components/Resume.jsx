@@ -66,7 +66,27 @@ const itemVariants = {
 };
 
 // --- Sub-Component: Single Timeline Item ---
+const TimelineItem = ({ years, title, description, isLast }) => (
+  <motion.div variants={itemVariants} className="relative flex pb-8">
+    {/* Timeline Line and Dot */}
+    <div className="flex flex-col items-center mr-6">
+      <div className="w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow z-10"></div>
+      {/* The line connecting the dots (hidden for the last item) */}
+      {!isLast && (
+        <div className="h-full w-0.5 bg-gray-300 transform translate-y-[-4px]"></div>
+      )}
+    </div>
 
+    {/* Content Box */}
+    <div className="flex-1 bg-white p-4 rounded-lg shadow-md border border-gray-100 mb-6">
+      <p className="text-xs font-semibold text-white bg-blue-600 inline-block px-3 py-1 rounded mb-2 shadow-sm">
+        {years}
+      </p>
+      <h4 className="text-xl font-bold text-gray-800 mb-2">{title}</h4>
+      <p className="text-gray-600 text-sm">{description}</p>
+    </div>
+  </motion.div>
+);
 
 // --- Main Component ---
 export default function ResumeSection() {

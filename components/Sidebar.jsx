@@ -59,43 +59,48 @@ export default function Sidebar({ sections }) {
 
   return (
     <div className="w-72 h-screen bg-white shadow-lg fixed left-0 top-0 overflow-y-auto">
-      {/* ---------- TOP BACKGROUND AREA ---------- */}
-      <div className="relative h-48 w-full">
+      {/* ---------- BACKGROUND AREA (entire profile section inside) ---------- */}
+      <div className="relative h-64 w-full flex flex-col items-center justify-center">
         <img
-          src="/bg-cover.jpg"
-          className="w-full h-full object-cover"
+          src="/nav-bg.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="bg"
         />
 
-        {/* Profile + Name + Email + Social */}
-        <div className="absolute left-6 bottom-[-40px]">
+        {/* Overlay (optional for dark effect) */}
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        {/* ALL content on top */}
+        <div className="relative flex flex-col items-center z-10">
+          {/* PROFILE IMAGE */}
           <img
-            src="/profile.jpg"
-            className="w-20 h-20 rounded-full border-4 border-white shadow-lg object-cover"
+            src="/MHEmon.png"
+            className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover"
             alt="profile"
           />
-        </div>
-      </div>
 
-      {/* ---------- TEXT AREA UNDER PROFILE ---------- */}
-      <div className="mt-16 px-6">
-        <h2 className="text-xl font-semibold text-gray-800">Sean Stevenson</h2>
+          {/* NAME */}
+          <h2 className="text-xl font-semibold text-white mt-3">
+            Mahadi Hasan Emon
+          </h2>
 
-        <p className="text-gray-500 text-sm">stevenson@gmail.com</p>
+          {/* EMAIL */}
+          <p className="text-white/80 text-sm">stevenson@gmail.com</p>
 
-        {/* SOCIAL ICONS */}
-        <div className="flex gap-4 mt-4 text-gray-600 text-lg">
-          <FaGithub className="cursor-pointer hover:text-gray-900" />
-          <FaDribbble className="cursor-pointer hover:text-pink-500" />
-          <FaTwitter className="cursor-pointer hover:text-blue-400" />
-          <FaGooglePlusG className="cursor-pointer hover:text-red-600" />
-          <FaLinkedin className="cursor-pointer hover:text-blue-600" />
-          <FaFacebook className="cursor-pointer hover:text-blue-700" />
+          {/* SOCIAL ICONS */}
+          <div className="flex gap-4 mt-3 text-white text-lg">
+            <FaGithub className="cursor-pointer hover:text-gray-200" />
+            <FaDribbble className="cursor-pointer hover:text-pink-300" />
+            <FaTwitter className="cursor-pointer hover:text-blue-300" />
+            <FaGooglePlusG className="cursor-pointer hover:text-red-300" />
+            <FaLinkedin className="cursor-pointer hover:text-blue-300" />
+            <FaFacebook className="cursor-pointer hover:text-blue-400" />
+          </div>
         </div>
       </div>
 
       {/* ---------- MENU ITEMS ---------- */}
-      <div className="mt-8">
+      <div className="mt-4">
         {sections.map((item) => (
           <motion.div
             key={item.id}
@@ -107,7 +112,7 @@ export default function Sidebar({ sections }) {
               ${
                 active === item.id
                   ? "bg-blue-50 text-blue-600 font-semibold"
-                  : "text-gray-600 hover:bg-gray-50"
+                  : "text-gray-700 hover:bg-gray-50"
               }
             `}>
             <span

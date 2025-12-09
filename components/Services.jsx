@@ -15,14 +15,6 @@ import {
 
 const SERVICE_CARDS = [
   {
-    icon: FaPalette,
-    title: "UI/UX Design",
-    description:
-      "Designing beautiful and highly functional user interfaces and engaging user experiences focused on conversion and accessibility.",
-    color: "bg-green-600", // Matches screenshot green
-    delay: 0.2,
-  },
-  {
     icon: FaLaptopCode,
     title: "Web Application",
     description:
@@ -30,6 +22,15 @@ const SERVICE_CARDS = [
     color: "bg-teal-600", // Matches screenshot teal/blue-green
     delay: 0.3,
   },
+  {
+    icon: FaPalette,
+    title: "UI/UX Design",
+    description:
+      "Designing beautiful and highly functional user interfaces and engaging user experiences focused on conversion and accessibility.",
+    color: "bg-green-600", // Matches screenshot green
+    delay: 0.2,
+  },
+
   {
     icon: FaAndroid,
     title: "Android Application",
@@ -71,7 +72,29 @@ const cardVariants = {
 };
 
 // --- Sub-Component: Single Service Card (UPDATED HOVER ANIMATION) ---
+const ServiceCard = ({ icon: Icon, title, description, color, delay }) => (
+  <motion.div
+    variants={cardVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ delay: delay }}
+    // Added stronger hover effect for visual appeal
+    className="flex bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-[1.03] hover:shadow-xl transition-transform duration-300 border border-gray-100 cursor-pointer">
+    {/* Color Block (Left Side) */}
+    <div
+      className={`${color} w-20 flex-shrink-0 flex items-center justify-center p-4`}>
+      {/* Icon */}
+      <Icon size={32} className="text-white" />
+    </div>
 
+    {/* Content */}
+    <div className="p-4 flex-1">
+      <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+      <p className="text-gray-600 text-sm">{description}</p>
+    </div>
+  </motion.div>
+);
 
 // --- Main Component (UPDATED GRID LAYOUT) ---
 export default function ServicesSection() {

@@ -18,7 +18,7 @@ export default function Home() {
     <div className="flex">
       <Sidebar sections={sections} />
 
-      <main className="flex-1 ml-64 px-15 py-5">
+      <main className="flex-1 mt-5 lg:px-5">
         <HeaderSection />
         
         {/* baki section gulo same vhabe banabo */}

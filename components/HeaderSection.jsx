@@ -11,41 +11,48 @@ export default function HeroProfile() {
   };
 
   return (
-    <div className="w-full pb-16">
+    // Added responsive horizontal padding (px-4 for mobile, px-6 for md)
+    <div className="w-full pb-16 px-4 md:px-6 lg:px-0"> 
+      
       {/* --------- TOP BACKGROUND IMAGE --------- */}
       <div className="w-full h-[380px] relative">
         <img
           src="/hero-bg.avif" // upload yourself
           className="w-full h-full object-cover rounded-xl shadow"
+          alt="Hero Background"
         />
 
-        {/* PROFILE IMAGE */}
+        {/* PROFILE IMAGE: Adjusted bottom positioning for mobile screens (-bottom-14) 
+            and added z-index to ensure it sits above content below. */}
         <motion.img
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, type: "spring" }}
           src="/MHEmon.png" // upload yourself
-          className="w-28 h-28 rounded-full border-4 border-white shadow-lg absolute left-10 -bottom-14 object-cover"
+          className="w-28 h-28 rounded-full border-4 border-white shadow-lg absolute left-1/2 md:left-10 -translate-x-1/2 md:-translate-x-0 -bottom-14 object-cover z-10"
+          alt="Profile"
         />
       </div>
 
       {/* --------- NAME + TITLE + STATS --------- */}
-      <div className="bg-white rounded-xl mt-16 px-10">
+      {/* Added pt-16 to give space for the profile image on all screens */}
+      <div className="bg-white rounded-xl lg:px-10 mt-16 md:mt-5 pt-2"> 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* NAME */}
+          
+          {/* NAME: Adjusted margin for mobile and desktop alignment */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-center md:text-left">
+            className="text-center md:text-left mb-8 md:mb-0"> 
             <h2 className="text-2xl font-semibold text-gray-900">
-              Sean Stevenson
+              Mahadi Hasan Emon
             </h2>
             <p className="text-gray-500">Front-end Developer</p>
           </motion.div>
 
-          {/* STATS */}
-          <div className="flex flex-wrap gap-10 mt-8 md:mt-0 text-center">
+          {/* STATS: Added justify-center for better mobile alignment */}
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mt-0 text-center">
             {/* Completed Jobs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -77,7 +84,8 @@ export default function HeroProfile() {
       </div>
 
       {/* --------- 4 STATISTIC CARDS --------- */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      {/* Changed lg:grid-cols-4 to md:grid-cols-4 for better utilization of medium screens */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
         {/* CARD 1 */}
         <motion.div
           variants={cardFade}

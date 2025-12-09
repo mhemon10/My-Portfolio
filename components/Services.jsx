@@ -76,6 +76,31 @@ const cardVariants = {
 // --- Main Component (UPDATED GRID LAYOUT) ---
 export default function ServicesSection() {
   return (
-   
+    <section
+      id="services" // Used for Intersection Observer in Sidebar
+      className="p-4 md:p-8 lg:p-3 bg-white">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl font-bold mb-10 text-gray-800">
+        Services
+      </motion.h1>
+
+      {/* Grid for Cards: Now uses a 1-column layout on mobile, and a 2-column layout on medium/large screens (2x3 grid) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {SERVICE_CARDS.map((service, index) => (
+          <ServiceCard
+            key={index}
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+            color={service.color}
+            delay={service.delay}
+          />
+        ))}
+      </div>
+    </section>
   );
 }

@@ -26,7 +26,7 @@ export default function Sidebar({ sections }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if mobile on mount and resize
+  // Check if mobile on mount and resize (No change)
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -38,10 +38,13 @@ export default function Sidebar({ sections }) {
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  // Auto-close mobile sidebar when clicking outside
+  // Auto-close mobile sidebar when clicking outside (Fixed: Added class for toggle button)
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (isMobileOpen && !e.target.closest(".sidebar-container")) {
+      const isToggle = e.target.closest(".mobile-toggle-button");
+      const isSidebar = e.target.closest(".sidebar-container");
+
+      if (isMobileOpen && !isSidebar && !isToggle) {
         setIsMobileOpen(false);
       }
     };
@@ -50,7 +53,7 @@ export default function Sidebar({ sections }) {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isMobileOpen]);
 
-  // Intersection Observer for active section
+  // Intersection Observer for active section (No change)
   useEffect(() => {
     const observers = [];
 
@@ -70,6 +73,19 @@ export default function Sidebar({ sections }) {
     return () => observers.forEach((obs) => obs.disconnect());
   }, [sections]);
 
+  // 🎯 FIX 1: Home Activation on Scroll Up (Scroll listener)
+  useEffect(() => {
+    const handleScroll = () => {
+      // If scroll position is very close to the top (e.g., within 50px), set active to home
+      if (window.scrollY < 50) {
+        setActive("home");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []); // Run once on mount
+
   const iconMap = {
     home: <FaHome size={22} />,
     about: <FaUser size={22} />,
@@ -81,24 +97,32 @@ export default function Sidebar({ sections }) {
     contact: <FaPhone size={22} />,
   };
 
+  // 🎯 FIX 2: ScrollToSection (Ensure "home" scrolls to the top of the page)
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (id === "home") {
+      // Explicitly scroll to the very top of the window
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // For other sections, use the element scrollIntoView
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+
     if (isMobile) {
       setIsMobileOpen(false);
     }
   };
 
-  // Mobile toggle button
+  // Mobile toggle button (Changed to semi-transparent white, added class)
   const MobileToggleButton = () => (
     <button
       onClick={() => setIsMobileOpen(!isMobileOpen)}
-      className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all"
+      className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-white/90 text-gray-800 rounded-full shadow-lg hover:bg-white/100 transition-all mobile-toggle-button"
       aria-label={isMobileOpen ? "Close menu" : "Open menu"}>
       {isMobileOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
     </button>
   );
 
-  // Social Icons Component
+  // Social Icons Component (No change)
   const SocialIcons = () => (
     <div className="flex gap-3 mt-3 text-white text-base lg:text-lg justify-center">
       <FaGithub className="cursor-pointer hover:text-gray-200 transition-colors" />
@@ -110,7 +134,7 @@ export default function Sidebar({ sections }) {
     </div>
   );
 
-  // Sidebar Content Component
+  // Sidebar Content Component (No change)
   const SidebarContent = () => (
     <div className="sidebar-container h-full flex flex-col">
       {/* Profile Section */}

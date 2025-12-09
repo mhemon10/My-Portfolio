@@ -36,10 +36,11 @@ export default function HeroProfile() {
 
       {/* --------- NAME + TITLE + STATS --------- */}
       {/* Added pt-16 to give space for the profile image on all screens */}
-      <div className="bg-white rounded-xl lg:px-10 mt-16 md:mt-5 pt-2"> 
+      <div className="bg-white rounded-xl lg:px-10 mt-16 lg:mt-15 md:mt-5 pt-2"> 
         <div className="flex flex-col md:flex-row justify-between items-center">
           
           {/* NAME: Adjusted margin for mobile and desktop alignment */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -67,7 +68,7 @@ export default function HeroProfile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}>
-              <h3 className="text-2xl font-semibold">10</h3>
+              <h3 className="text-2xl font-semibold">1+</h3>
               <p className="text-gray-500 text-sm">Years Experience</p>
             </motion.div>
 

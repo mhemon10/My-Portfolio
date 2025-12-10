@@ -12,7 +12,7 @@ export default function HeroProfile() {
 
   return (
     // Added responsive horizontal padding (px-4 for mobile, px-6 for md)
-    <div className="w-full pb-16 px-4 md:px-6 lg:px-0"> 
+    <div className="w-full pb-16 lg:pb-5 px-4 md:px-6 lg:px-0"> 
       
       {/* --------- TOP BACKGROUND IMAGE --------- */}
       <div className="w-full h-[380px] relative">

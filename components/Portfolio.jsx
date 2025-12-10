@@ -117,6 +117,54 @@ export default function PortfolioSection() {
   );
 
   return (
-  
+    <section
+      id="portfolio" // Used for Intersection Observer in Sidebar
+      className="p-4 md:p-8 lg:p-3 bg-white">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl font-bold mb-6 text-gray-800">
+        Portfolio
+      </motion.h1>
+
+      {/* Filter Tabs */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex flex-wrap gap-2 md:gap-4 mb-10 border-b border-gray-200 pb-2">
+        {FILTERS.map((filter) => (
+          <button
+            key={filter.category}
+            onClick={() => setActiveFilter(filter.category)}
+            className={`text-sm md:text-base px-3 py-1 font-medium rounded-full transition-all duration-300 capitalize 
+                            ${
+                              activeFilter === filter.category
+                                ? "bg-blue-600 text-white shadow-md"
+                                : "text-gray-600 hover:text-blue-600"
+                            }
+                        `}>
+            {filter.label}
+          </button>
+        ))}
+      </motion.div>
+
+      {/* Project Grid (Uses AnimatePresence for filter transitions) */}
+      <motion.div
+        layout
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible">
+        <AnimatePresence>
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </AnimatePresence>
+      </motion.div>
+    </section>
   );
 }

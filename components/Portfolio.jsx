@@ -103,7 +103,53 @@ const ProjectCard = ({ project }) => {
   };
 
   return (
-   
+    <motion.div
+      variants={itemVariants}
+      layout
+      className="group bg-white shadow-lg rounded-lg overflow-hidden flex flex-col cursor-pointer hover:shadow-xl transition-shadow duration-300">
+      {/* Image Area */}
+      <div
+        className="relative h-48 md:h-56 w-full overflow-hidden"
+        onClick={handleProjectClick}>
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+
+        {/* Overlay Icon (Optional Hover Effect) */}
+        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <FaExternalLinkAlt size={30} className="text-white" />
+        </div>
+
+        {/* Top Right Pin/Save Button (Screenshot style) */}
+        {project.save && (
+          <div className="absolute top-3 right-3 p-1.5 bg-white rounded-full shadow-lg">
+            <FaSave size={14} className="text-red-600" />
+          </div>
+        )}
+      </div>
+
+      {/* Details Area */}
+      <div className="p-4 flex flex-col justify-between flex-grow">
+        <div>
+          <h3 className="text-lg font-semibold text-gray-800 mb-1">
+            {project.title}
+          </h3>
+        </div>
+
+        {/* Tags and Options */}
+        <div className="flex justify-between items-center mt-2">
+          {/* Tags (Using the first tag for primary display, matching screenshot style) */}
+          <span className="text-sm text-gray-500 font-medium">
+            {project.tags[0]}
+          </span>
+
+          {/* Ellipsis/Options Icon */}
+          <FaEllipsisV className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer" />
+        </div>
+      </div>
+    </motion.div>
   );
 };
 

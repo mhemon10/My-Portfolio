@@ -4,6 +4,7 @@ import About from "@/components/About";
 import AboutMeSection from "@/components/About";
 import ResumeSection from "@/components/Resume";
 import ServicesSection from "@/components/Services";
+import PortfolioSection from "@/components/Portfolio";
 
 export default function Home() {
   const sections = [
@@ -26,6 +27,7 @@ export default function Home() {
         <AboutMeSection></AboutMeSection>
         <ResumeSection></ResumeSection>
         <ServicesSection></ServicesSection>
+        <PortfolioSection></PortfolioSection>
         
         
       </main>

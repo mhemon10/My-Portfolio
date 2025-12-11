@@ -32,7 +32,7 @@ const BLOG_POSTS = [
     title: "Enhancing User Experience With Image Gallery Lightboxes",
     excerpt:
       "Explore the benefits of incorporating image gallery lightboxes into your website design. From improved user...",
-    date: "June 43, 2024",
+    date: "June 43, 2022",
     tags: ["HTML", "CSS","Nextjs","React"],
     image: "/blog-post-3.jpg",
     link: "https://example.com/image-lightboxes",
@@ -63,7 +63,57 @@ const cardVariants = {
 };
 
 // --- Sub-Component: Single Blog Card (UPDATED FOR LIGHT THEME) ---
+const BlogPostCard = ({ post, delay }) => (
+  <motion.div
+    variants={cardVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ delay: delay }}
+    // Card background is white, shadow for depth
+    className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.03] hover:shadow-xl transition-transform duration-300 cursor-pointer border border-gray-100"
+    onClick={() => window.open(post.link, "_blank")}>
+    {/* Image Area */}
+    <div className="relative h-48 w-full overflow-hidden">
+      <img
+        src={post.image}
+        alt={post.title}
+        className="w-full h-full object-cover"
+      />
 
+      {/* Dark Overlay (Subtle) */}
+      <div className="absolute inset-0 bg-black/10"></div>
+
+      {/* Date Tag (Blue background, white text) */}
+      <div className="absolute bottom-4 left-4 text-xs font-semibold text-white bg-blue-600 px-3 py-1 rounded shadow-lg">
+        {post.date}
+      </div>
+
+      {/* Top Right Save Pin */}
+      {post.save && (
+        <div className="absolute top-4 right-4 p-1.5 bg-white rounded shadow-lg">
+          <FaBookmark size={14} className="text-red-600" />
+        </div>
+      )}
+    </div>
+
+    {/* Content */}
+    <div className="p-6">
+      <h3 className="text-xl font-bold mb-3 text-gray-800">{post.title}</h3>
+      <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
+
+      {/* Tags (Using Blue color for highlight) */}
+      <div className="text-sm text-gray-500">
+        Tags:
+        {post.tags.map((tag, index) => (
+          <span key={index} className="text-blue-600 font-medium ml-1">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+);
 
 // --- Main Component (UPDATED FOR LIGHT THEME) ---
 export default function BlogSection() {

@@ -66,4 +66,34 @@ const cardVariants = {
 
 
 // --- Main Component (UPDATED FOR LIGHT THEME) ---
+export default function BlogSection() {
+  return (
+    <section
+      id="blog" // Used for Intersection Observer in Sidebar
+      // Main container uses a light background (bg-gray-50 or bg-white)
+      className="p-4 md:p-8 lg:p-3 bg-white">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl font-bold mb-10 text-gray-800 flex items-center">
+        <span className="w-10 h-0.5 bg-blue-600 mr-3"></span>{" "}
+        {/* Line under title */}
+        Latest Blog Posts
+      </motion.h1>
 
+      {/* Grid for Cards: Responsive 1, 2, or 3 columns */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}>
+        {BLOG_POSTS.map((post, index) => (
+          <BlogPostCard key={post.id} post={post} delay={0.1 * index} />
+        ))}
+      </motion.div>
+    </section>
+  );
+}

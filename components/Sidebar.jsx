@@ -163,7 +163,7 @@ export default function Sidebar({ sections }) {
 
           {/* Email */}
           <p className="text-white/80 text-xs lg:text-sm mt-1 text-center">
-            stevenson@gmail.com
+            mhemon833@gmail.com
           </p>
 
           {/* Social Icons */}

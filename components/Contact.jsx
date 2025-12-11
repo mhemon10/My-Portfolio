@@ -15,19 +15,19 @@ const CONTACT_INFO = [
   {
     icon: FaMapMarkerAlt,
     label: "Address:",
-    value: "Dhaka, Uttara, Bangladesh",
+    value: "Uttara, Dhaka-1230, Bangladesh",
     link: "https://maps.app.goo.gl/YourMapLinkHere", // Replace with actual Google Maps link
   },
   {
     icon: FaPhone,
     label: "Phone:",
-    value: "+880 1XXXXXXXXX",
+    value: "+880 1932582807",
     link: "tel:+8801XXXXXXXXX",
   },
   {
     icon: FaEnvelope,
     label: "E-mail:",
-    value: "your.email@example.com",
+    value: "mhemon833@gmail.com",
     link: "mailto:your.email@example.com",
   },
 ];
@@ -159,6 +159,45 @@ const ContactForm = () => (
 // --- Main Component ---
 export default function ContactSection() {
   return (
-  
+    <motion.section
+      id="contact" // Used for Intersection Observer in Sidebar
+      className="p-4 md:p-8 lg:p-3 bg-white"
+      variants={containerVariants}
+      initial="hidden"
+      // Ensure animation runs when scrolled into view
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}>
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl font-bold mb-10 text-gray-800 flex items-center">
+        <span className="w-10 h-0.5 bg-blue-600 mr-3"></span>{" "}
+        {/* Line under title */}
+        Contact Me
+      </motion.h1>
+
+      {/* Layout Grid: Left (Info + Map) 1 column, Right (Form) 1 column */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Left Column: Contact Info & Map */}
+        <div className="lg:col-span-1 space-y-8">
+          <ContactInfoCard />
+          <ContactMapCard />
+        </div>
+
+        {/* Right Column: Contact Form (Takes 2/3 space on large screens) */}
+        <div className="lg:col-span-2">
+          <ContactForm />
+        </div>
+      </div>
+
+      {/* Footer Text (Matching the screenshot style) */}
+      <motion.p
+        variants={itemVariants}
+        className="text-center text-sm text-gray-500 mt-12 pb-5">
+        &copy; Created with ❤️ By MH Emon
+      </motion.p>
+    </motion.section>
   );
 }

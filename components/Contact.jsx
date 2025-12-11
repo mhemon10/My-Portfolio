@@ -90,7 +90,25 @@ const ContactInfoCard = () => (
 
 // --- Sub-Component: Contact Map Card ---
 const ContactMapCard = () => (
+  <motion.div
+    variants={itemVariants}
+    className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
+    <h3 className="text-xl font-bold mb-4 text-gray-800 flex justify-between items-center">
+      Contact Map <FaMapMarkerAlt className="text-gray-400" size={18} />
+    </h3>
 
+    <div className="h-64 rounded-md overflow-hidden border border-gray-300">
+      <iframe
+        src={MAP_EMBED_URL}
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Location Map"></iframe>
+    </div>
+  </motion.div>
 );
 
 // --- Sub-Component: Contact Form ---

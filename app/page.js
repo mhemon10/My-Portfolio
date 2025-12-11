@@ -7,6 +7,7 @@ import ServicesSection from "@/components/Services";
 import PortfolioSection from "@/components/Portfolio";
 import BlogSection from "@/components/Blog";
 import ContactSection from "@/components/Contact";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   const sections = [
@@ -32,6 +33,7 @@ export default function Home() {
         <PortfolioSection></PortfolioSection>
         <BlogSection></BlogSection>
         <ContactSection></ContactSection>
+        <WhatsAppButton></WhatsAppButton>
         
         
       </main>

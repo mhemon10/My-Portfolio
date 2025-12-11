@@ -117,21 +117,26 @@ export default function AboutMeSection() {
       <h1 className="text-3xl font-bold mb-6 text-gray-800">About Me</h1>
 
       {/* 1. About Text & CV Button */}
-      <motion.div variants={itemVariants} className=" lg:p-5 mb-5 shadow">
+      <motion.div variants={itemVariants} className=" p-4 lg:p-5 mb-5 shadow">
         <p className="text-gray-600 mb-4 leading-relaxed">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit. Sed ut perspiciatis unde omnis iste
-          natus error sit voluptatem accusantium doloremque.
+          Hi, I’m Mahadi Hasan Emon — a passionate Front-End Developer who loves
+          turning ideas into clean, modern, and fully responsive web
+          experiences. I enjoy bringing designs to life with smooth animations,
+          pixel-perfect layouts, and intuitive user interfaces that feel great
+          on every device. Over the past years, I’ve worked on various personal
+          and client projects, focusing on creating fast, user-friendly, and
+          visually appealing websites. My main stack includes HTML, CSS,
+          JavaScript, React, Next.js, and I’m constantly learning new tools to
+          improve my craft and deliver better digital solutions. I believe good
+          design is not just how a website looks, but how it works — and my goal
+          is to build interfaces that are both beautiful and functional. Whether
+          it’s a landing page, a dashboard, or a complete web app, I always aim
+          to write maintainable, clean code and ensure a seamless user
+          experience. When I’m not coding, I explore new UI trends, create
+          creative projects, and continuously push myself to become a better
+          developer.
         </p>
-        <p className="text-gray-600 mb-6 leading-relaxed">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
+      
         <button className="flex items-center bg-green-600 text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:bg-green-700 transition duration-300">
           <FaDownload className="mr-2" />
           DOWNLOAD CV.
@@ -142,7 +147,7 @@ export default function AboutMeSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6 mt-10">
         {/* Left Column: Personal Info */}
         <motion.div variants={containerVariants}>
-          <div className="space-y-2">
+          <div className="space-y-2 ">
             {PERSONAL_INFO.map((item, index) => (
               <StatItem
                 key={index}

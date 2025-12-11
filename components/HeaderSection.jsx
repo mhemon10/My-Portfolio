@@ -12,10 +12,9 @@ export default function HeroProfile() {
 
   return (
     // Added responsive horizontal padding (px-4 for mobile, px-6 for md)
-    <div className="w-full pb-16 lg:pb-5 px-4 md:px-6 lg:px-0"> 
-      
+    <div className="w-full pb-16 lg:pb-5 px-4 md:px-6 lg:px-0">
       {/* --------- TOP BACKGROUND IMAGE --------- */}
-      <div className="w-full h-[380px] relative">
+      <div className="w-full h-48 sm:h-64 md:h-[320px] lg:h-[380px] relative">
         <img
           src="/hero-bg.avif" // upload yourself
           className="w-full h-full object-cover rounded-xl shadow"
@@ -36,16 +35,15 @@ export default function HeroProfile() {
 
       {/* --------- NAME + TITLE + STATS --------- */}
       {/* Added pt-16 to give space for the profile image on all screens */}
-      <div className="bg-white rounded-xl lg:px-10 mt-16 lg:mt-15 md:mt-5 pt-2"> 
+      <div className="bg-white rounded-xl lg:px-10 mt-16 lg:mt-15 md:mt-5 pt-2">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          
           {/* NAME: Adjusted margin for mobile and desktop alignment */}
 
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-center md:text-left mb-8 md:mb-0"> 
+            className="text-center md:text-left mb-8 md:mb-0">
             <h2 className="text-2xl font-semibold text-gray-900">
               Mahadi Hasan Emon
             </h2>
@@ -96,7 +94,7 @@ export default function HeroProfile() {
           className="bg-green-600 text-white rounded-md shadow-lg p-6">
           <div className="flex items-center gap-3">
             <FaUsers size={26} />
-            <h3 className="text-xl font-semibold">480+</h3>
+            <h3 className="text-xl font-semibold">10+</h3>
           </div>
           <p className="mt-2 text-sm opacity-90">Happy Clients</p>
         </motion.div>
@@ -110,7 +108,7 @@ export default function HeroProfile() {
           className="bg-teal-600 text-white rounded-md shadow-lg p-6">
           <div className="flex items-center gap-3">
             <FaCheckCircle size={26} />
-            <h3 className="text-xl font-semibold">400+</h3>
+            <h3 className="text-xl font-semibold">25+</h3>
           </div>
           <p className="mt-2 text-sm opacity-90">Completed Projects</p>
         </motion.div>

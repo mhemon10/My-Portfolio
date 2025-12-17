@@ -21,13 +21,12 @@ export default function HeroProfile() {
           alt="Hero Background"
         />
 
-        {/* PROFILE IMAGE: Adjusted bottom positioning for mobile screens (-bottom-14) 
-            and added z-index to ensure it sits above content below. */}
+        
         <motion.img
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, type: "spring" }}
-          src="/MHEmon.png" // upload yourself
+          src="/MHEmon.png" 
           className="w-28 h-28 rounded-full border-4 border-white shadow-lg absolute left-1/2 md:left-10 -translate-x-1/2 md:-translate-x-0 -bottom-14 object-cover z-10"
           alt="Profile"
         />
@@ -37,7 +36,7 @@ export default function HeroProfile() {
       {/* Added pt-16 to give space for the profile image on all screens */}
       <div className="bg-white rounded-xl lg:px-10 mt-16 lg:mt-15 md:mt-5 pt-2">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* NAME: Adjusted margin for mobile and desktop alignment */}
+         
 
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -122,7 +121,7 @@ export default function HeroProfile() {
           className="bg-red-600 text-white rounded-md shadow-lg p-6">
           <div className="flex items-center gap-3">
             <FaCode size={26} />
-            <h3 className="text-xl font-semibold">100,000+</h3>
+            <h3 className="text-xl font-semibold">100,00+</h3>
           </div>
           <p className="mt-2 text-sm opacity-90">Lines of Code</p>
         </motion.div>

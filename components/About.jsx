@@ -19,29 +19,33 @@ import {
 // Personal Information Data
 const PERSONAL_INFO = [
   { label: "Age:", value: "22 Years", icon: MdCake },
-  { label: "Job:", value: "Freelancer", icon: MdOutlineWork },
-  { label: "Citizenship:", value: "United States", icon: MdFlag },
+  { label: "Job:", value: "intern", icon: MdOutlineWork },
+  { label: "Citizenship:", value: "Bangladesh", icon: MdFlag },
   {
     label: "Address:",
-    value: "358 W Jefferson St, Bensenville",
+    value: "Uttara Uttarkhan Dhaka-1230",
     icon: MdLocationOn,
   },
 ];
 
 const FUN_STATS = [
   { label: "Cups of coffee:", value: "20.000", icon: MdEmojiFoodBeverage },
-  { label: "Countries Visited:", value: "28", icon: MdPublic },
-  { label: "Awards Won:", value: "16", icon: MdMilitaryTech },
-  { label: "Albumes Listened:", value: "80", icon: MdMusicNote },
+  { label: "Countries Visited:", value: "0", icon: MdPublic },
+  { label: "Awards Won:", value: "3", icon: MdMilitaryTech },
+  { label: "Albumes Listened:", value: "20", icon: MdMusicNote },
 ];
 
 // Skills Data
 const PROFESSIONAL_SKILLS = [
-  { name: "UI/UX Design", level: 90, color: "bg-green-500" },
-  { name: "Web Develoement", level: 85, color: "bg-green-500" },
-  { name: "Mobile Application", level: 75, color: "bg-green-500" },
-  { name: "Writing", level: 80, color: "bg-green-500" },
-  { name: "Photography", level: 70, color: "bg-green-500" },
+  { name: "HTML", level: 90, color: "bg-green-500" },
+  { name: "CSS", level: 85, color: "bg-green-500" },
+  { name: "Javascript", level: 70, color: "bg-green-500" },
+  { name: "Tailwind CSS", level: 80, color: "bg-green-500" },
+  { name: "React", level: 70, color: "bg-green-500" },
+  { name: "NextJs", level: 70, color: "bg-green-500" },
+  { name: "NodeJs", level: 65, color: "bg-green-500" },
+  { name: "ExpressJs", level: 70, color: "bg-green-500" },
+  { name: "MongoDb", level: 70, color: "bg-green-500" },
 ];
 
 const PERSONAL_SKILLS = [

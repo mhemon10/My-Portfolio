@@ -7,37 +7,37 @@ import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
 // --- DATA ---
 const EDUCATION_DATA = [
   {
-    years: "2020 to Present",
-    title: "Self Taught (Programming)",
+  years: "2020 to 2025",
+  title: "B.Sc in Computer Science Engineering(CSE) at AIUB",
+  description:
+    "Completed B.Sc in CSE from AIUB (2020-2025). During this period, I also self-taught programming, learning HTML, CSS, JavaScript, React, Next.js, and Bootstrap, and became a professional web designer.",
+},
+  {
+    years: "2018 to 2019",
+    title: "Higher Secondary Certificate(HSC)",
     description:
-      "Since 2020 I started learning programming. I have learned HTML, CSS, Sass, JavaScript, Bootstrap. Now I am a Professional Web Designer.",
+      "Passed HSC Exam in 2019 from Science Group from Kanchkura College.",
   },
   {
-    years: "2019 to Present",
-    title: "Diploma In Civil Engineering",
+    years: "2017",
+    title: "Secondary School Certificate(SSC)",
     description:
-      "Studying Civil Engineering at Shyamoli Ideal Polytechnic Institute since 2019. Continuing at present.",
-  },
-  {
-    years: "2014 to 2019",
-    title: "Secondary School Certificate",
-    description:
-      "Passed SSC Exam in 2019 from Science Group with GPA 4.56 from Patgram Anath Bondhu Govt. High School.",
+      "Passed SSC Exam in 2017 from Science Group with GPA 4.86 from Kanchkura High School.",
   },
 ];
 
 const EXPERIENCE_DATA = [
   {
-    years: "2019 to Present",
-    title: "Graphics Design",
+    years: "2025 Oct to Present",
+    title: "Front-end Intern",
     description:
-      "Working in Graphic Design since 2018 using Photoshop and Illustrator.",
+      "Building the full Front-end of iHelpKL, the Malaysian branch of iHelpBD, using React and Next.js for a responsive and interactive website.",
   },
   {
-    years: "2020 to Present",
-    title: "Web Design",
+    years: "2022 to Present",
+    title: "Web Developer",
     description:
-      "Learned HTML, CSS, Sass, JavaScript, Bootstrap. Now a professional Web Designer.",
+      "Learned HTML, CSS, JavaScript, React, and Next.js. Currently working as a professional Web Developer.",
   },
   {
     years: "2020 to Present",
